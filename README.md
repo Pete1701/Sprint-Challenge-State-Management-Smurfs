@@ -24,12 +24,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What problem does the context API help solve?
 
-
+Context API helps solve the problem of "prop drilling", passing data as props form parent to children through layers of components, which many times are intermediate components that doesn't need those data.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Store in Redux is where the state is stored. This state is only one at any given time, immutable and read-only. In order to modify state, actions has to be dispatched. Actions are objects that describe what changed. Reducers are pure functions that take as parameters the state and an action and return the new state after the action is applied.
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is global and component state is local. With application state, any component in the app can access it as long as they hook into it. Component state lives within that specific component, so it can only be updated within that component and passed down to its children via props. Application state should be used with data that needs to be shared by multiple components or multiple pages and we need to keep some data over route changes. When some components don’t use the props they receive but just forward them down it’s a good time to introduce some container components.
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Thunks are functions that allow the action-creators to create not only objects, but other functions. With redux-thunk we can handle asynchronous actions in Redux.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Context API, because of it's simplicity and ease of using hooks.
 
 ## Project Set Up
 
